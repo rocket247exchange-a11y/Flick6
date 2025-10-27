@@ -117,3 +117,50 @@ a{color:inherit;text-decoration:none}
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 0 60px 12px rgba(255,210,60,0.6);
 }
+/* Carousel container for Now Showing */
+#grid-wrap {
+  display: flex;
+  overflow-x: hidden;
+  gap: 20px;
+  padding: 20px 0;
+  scroll-behavior: smooth;
+  animation: scrollCarousel 40s linear infinite;
+}
+
+.onFlickCard {
+  position: relative;
+  min-width: 300px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255,210,60,0.4); /* soft golden glow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.onFlickCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(255,210,60,0.6);
+}
+
+/* Flickering "Now Showing" neon */
+.now-sign {
+  font-family: 'Orbitron', sans-serif;
+  color: #FFD200;
+  text-shadow: 
+    0 0 5px #FFD200,
+    0 0 10px #FFD200,
+    0 0 20px #FFD200,
+    0 0 40px #FFD200,
+    0 0 80px #FFD200;
+  animation: flicker 1.5s infinite;
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 22%, 24%, 55% { opacity: 0.3; }
+}
+
+@keyframes scrollCarousel {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
